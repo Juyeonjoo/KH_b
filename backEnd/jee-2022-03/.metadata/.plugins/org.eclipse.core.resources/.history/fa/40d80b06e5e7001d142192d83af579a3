@@ -1,5 +1,0 @@
-package org.zerock.myapp.multithread;
-
-public class Sender extends Thread {
-
-}

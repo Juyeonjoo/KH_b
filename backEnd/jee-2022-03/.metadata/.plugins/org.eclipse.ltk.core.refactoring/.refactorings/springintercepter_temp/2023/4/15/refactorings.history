@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;HomeController.java&apos; to &apos;springquartz/src/main/java/org.zerock.myapp.controller&apos;&#x0D;&#x0A;- Original project: &apos;springintercepter_temp&apos;&#x0D;&#x0A;- Destination element: &apos;springquartz/src/main/java/org.zerock.myapp.controller&apos;&#x0D;&#x0A;- Original element: &apos;org.zerock.myapp.controller.HomeController.java&apos;" description="Copy compilation unit" destination="=springquartz/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;org.zerock.myapp.controller" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;org.zerock.myapp.controller{HomeController.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1681448820520" units="1" version="1.0"/>
-</session>

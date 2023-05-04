@@ -1,9 +1,0 @@
-package org.zerock.myapp.domain;
-
-import java.io.Serializable;
-
-
-@Data
-public class Member implements Serializable {
-
-}
