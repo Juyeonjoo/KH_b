@@ -1,0 +1,105 @@
+DROP TABLE SUMMER;
+
+CREATE TABLE Summer(
+    sid NUMBER,
+    class VARCHAR2(20),
+    price NUMBER
+
+);
+
+INSERT INTO Summer VALUES(100,'FORTRAN', 20000);
+INSERT INTO Summer VALUES (150, 'PASCAL', 15000);
+INSERT INTO Summer VALUES (200, 'C', 10000);
+INSERT INTO Summer VALUES (250, 'FORTRAN', 20000);
+
+SELECT
+* 
+FROM 
+Summer;
+
+
+SELECT 
+sid, CLASS
+FROM
+Summer;
+
+SELECT
+    PRICE
+FROM
+    Summer
+WHERE
+    class ='C';
+
+SELECT
+    max(price)
+FROM
+    summer;
+
+SELECT DISTINCT 
+class, PRICE
+FROM
+Summer
+WHERE price = (
+    SELECT
+        max(price)
+    FROM
+        summer
+);
+
+SELECT 
+    count(*), SUM(price)
+FROM
+    Summer;
+
+SHOW AUTOCOMMIT;
+
+DELETE FROM Summer
+WHERE sid = 200; -- Deletion Anomaly
+
+SELECT class, price 
+FROM    
+    Summer;
+
+INSERT INTO Summer VALUES (200, 'C', 10000);
+
+SELECT class, price 
+FROM    
+    Summer;
+
+INSERT INTO Summer (class, price)
+VALUES('JAVA', 25000);
+
+SELECT *
+FROM Summer;
+
+SELECT
+    count(*) AS C1,     --5
+    count(sid) AS C2    --4
+FROM
+    Summer;
+
+UPDATE summer
+SET
+    price = 15000 --FORTRAN 과목 20000->15000
+WHERE
+    sid = 100;      --100번 학생
+
+SELECT *
+FROM Summer;
+
+SELECT class, price 
+FROM summer
+WHERE class ='FORTRAN';
+
+UPDATE Summer 
+SET
+    price = 10000
+WHERE 
+    sid = 100 AND class ='FORTRAN';
+
+
+UPDATE Summer 
+SET
+    price = 15000
+WHERE 
+    sid = 100 AND class ='FORTRAN';
