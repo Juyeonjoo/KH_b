@@ -1,0 +1,17 @@
+package org.zerock.myapp;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
+public class URLExample {
+
+	public static void main(String[] args) throws MalformedURLException {
+		
+		String urlString = "https://www.google.co.kr";
+		URL url = new URL(urlString);
+		log.info("1. url: {}, type:{} ", url, url.getClass().getName());
+	}//main
+}//end class

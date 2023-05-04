@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+ <configuration>
+ 	
+	<mappers>
+		<!-- (*** 중요 ***) myBatis는 동일한 namespace
+		(예시, org.zerock.myapp.mapper.BoardMapper 도메인과 
+		BoardMapper.xml 파일에도 org.zerock.myapp.mapper.BoardMapper이름의 namespace가 있다면...) 
+		이름이 있다면 xml 파일보다 interface 파일을 가진 도메인을 먼저 찾는다. -->
+		
+		<!-- Mapper 인터페이스 등록 속성  -->
+		<mapper class="org.zerock.myapp.mapper.TimeMapper"/>
+		
+		<!-- Mapper XML 등록 속성  -->
+  		<mapper resource="mappers/SQL1Mapper.xml"/> 
+  		<!-- <mapper resource="mappers/*Mapper.xml"/>   특수문자( '*' 등)는 허용되지 않는다. -->
+	</mappers>
+
+ </configuration>

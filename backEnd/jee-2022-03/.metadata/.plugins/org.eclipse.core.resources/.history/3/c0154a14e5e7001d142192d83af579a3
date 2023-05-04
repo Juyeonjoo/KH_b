@@ -1,0 +1,8 @@
+package org.zerock.myapp.multithread;
+
+
+@Log4j2
+public class Sender extends Thread {
+
+	
+}//end class

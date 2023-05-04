@@ -1,0 +1,45 @@
+package org.zerock.myapp;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+
+import lombok.Cleanup;
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
+public class SingleThreadSocketClient {
+
+	public static void main(String[] args) throws IOException {
+		log.info("* Client started...");
+		
+		//서버의 지정된 Listen Port로 새로운 연결 요청 생성/전송=>연결생성
+		//=>데이터를 주고받을 수 있는 Socket을 완성한다.
+		
+		//Step.1 클라이언트용 Socket 객체 생성
+		@Cleanup
+		Socket socket = new Socket();
+		log.info("1. socket:{}", socket);//연결할 서버의 주소정보 없음
+		
+		//Step.2 연결을 요청할 서버의 IP 주소+ Listen Port번호를 가지는 InetSocketAddress객체를 생성
+		
+//		String serverIPAddress ="localhost";		//loopback Address
+		String serverIPAddress ="192.168.10.3";		//IPv4 Address
+		int serverListenPort = 7777;
+		int timeout= 100;
+		
+		
+		//Step.3 지정된 IP 주소와 포트번호로 Listen하고 있는 
+		//		서버로 연결 요청
+		InetSocketAddress serverSocketAddress 
+				= new InetSocketAddress(serverIPAddress, serverListenPort);
+		
+		
+//		socket.connect(serverSocketAddress);
+		socket.connect(serverSocketAddress, backLog);
+//		log.info("2. serverSocketAddress:{}", serverSocketAddress);
+		log.info("2. serverSocketAddress:{}, backLog:{} ", serverSocketAddress, backLog);
+		
+		log.info("3. socket after connected to the server:{}", socket);
+	}//main
+}//end class

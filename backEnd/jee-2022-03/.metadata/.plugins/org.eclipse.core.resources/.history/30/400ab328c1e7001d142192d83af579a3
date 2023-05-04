@@ -1,0 +1,21 @@
+package org.zerock.myapp;
+
+import java.net.DatagramSocket;
+
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
+public class UDPClient {
+
+//	client는 sender 송신자 역할을 한다
+//	UDP Networking 에서 메시지 송신자의 역할, 송신하기만 한다(수신은 반대로 없다)
+	public static void main(String[] args) {
+		
+		//UDP에서 클라이언트는 매개변수 없는 생성자를 이용한다.
+		//왜냐하면, UDP는 TCP와 같이 연결지향이 아니기 때문
+		DatagramSocket sock;
+		
+		
+	}//main
+
+}//end class

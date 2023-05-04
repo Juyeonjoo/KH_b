@@ -1,0 +1,26 @@
+package org.zerock.myapp.multithread;
+
+import java.net.Socket;
+
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
+public class Sender extends Thread {
+	
+	private Socket sock;
+	
+	public Sender (Socket sock, String name) {
+		
+		log.trace("Constructor({}, {}) invoked.", sock, name);
+		
+		this.sock=sock;
+		super.setName(name);
+	}//Constructor
+
+	@Override
+	public void run() {
+		log.trace("run() invoked.");
+	}
+	
+	
+}//end class

@@ -1,0 +1,11 @@
+package org.zerock.myapp;
+
+
+@Log4j2
+public class UDPClient {
+
+	public static void main(String[] args) {
+
+	}//main
+
+}//end class

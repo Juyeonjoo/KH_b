@@ -1,0 +1,13 @@
+package org.zerock.myapp;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class URLExample {
+
+	public static void main(String[] args) throws MalformedURLException {
+		
+		String urlString = "google.co.kr";
+		URL url = new URL(urlString);
+	}//main
+}//end class

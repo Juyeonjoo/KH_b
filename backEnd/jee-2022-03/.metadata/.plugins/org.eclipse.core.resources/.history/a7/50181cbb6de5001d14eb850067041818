@@ -1,0 +1,24 @@
+package org.zerock.myapp;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
+public class URLExample {
+
+	public static void main(String[] args) throws MalformedURLException {
+		
+		String urlString = "https://www.google.co.kr";
+		URL url = new URL(urlString);
+		log.info("1. url: {}, type:{} ", url, url.getClass().getName());
+		
+//		===URL 객체를 통해서 지정된 주소에 대한 다양한 정보 획득 가능
+		log.info("\t+ getAuthority: {}", url.getAuthority());
+		log.info("\t+ : {}", url.getAuthority());
+		log.info("\t+ : {}", url.getAuthority());
+		log.info("\t+ : {}", url.getAuthority());
+		
+	}//main
+}//end class

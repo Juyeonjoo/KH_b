@@ -1,0 +1,38 @@
+package org.zerock.myapp.multithread;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Arrays;
+
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
+public class MultiThreadSocketServer {
+
+	private static final int listenPort = 7777;
+	
+	public static void main(String[] args) throws IOException {
+
+		log.trace("main({}) invoked.", Arrays.toString(args));
+		
+		ServerSocket ss = new ServerSocket(listenPort);
+		log.info("ss : {} ", ss);
+		
+		try(ss){
+			
+			 
+			while(true){ //main thread의 역할 : 무한루프 : 연결요청 수신 > 수락> 새로운 Socket객체 생성
+				
+				log.info("* Listening on port {} ...", listenPort);
+				Socket sock = ss.accept();
+				log.info("socket : {} ", sock);
+				
+			}//while
+		}finally {
+			
+		}//
+		
+	}//main
+
+}//end class

@@ -1,0 +1,10 @@
+package org.zerock.myapp;
+
+
+@Log4j2
+public class URLConnectionExmaple {
+	
+	public static void main(String[] args) {
+		
+	}//main
+}//end class

@@ -1,0 +1,29 @@
+package org.zerock.myapp;
+
+import java.net.InetSocketAddress;
+import java.net.Socket;
+
+import org.zerock.myapp.domain.Member;
+
+public class OIOSocketClient {
+
+	public static void main(String[] args) {
+
+		
+		//Step1. 전송할 Member 객체를 생성 
+		Member member = new Member ();
+		member.setId(1);
+		member.setName("Ju");
+		member.setAge(23);
+		
+// 		Step.2 Socket 객체로 Server에 연결 시도 => if 성공 => Connection 생성
+		int serverListenPort = 5555;
+		int connectTimeout = 1000*1; //in milliseconds.
+		
+		Socket socket = new Socket();
+		socket.connect(new InetSocketAddress("localhost", serverListenPort), connectTimeout);
+		
+//		Step.3 
+	}//main
+
+}//end class

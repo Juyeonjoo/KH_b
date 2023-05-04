@@ -1,0 +1,7 @@
+package org.zerock.myapp.domain;
+
+import java.io.Serializable;
+
+public class Member implements Serializable {
+
+}

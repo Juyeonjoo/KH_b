@@ -1,0 +1,16 @@
+package org.zerock.myapp;
+
+import org.zerock.myapp.domain.Member;
+
+public class OIOSocketClient {
+
+	public static void main(String[] args) {
+
+		
+		//Step1. 전송할 Member 객체를 생성 
+		Member member = new Member ();
+		
+		member.setId(1);
+	}//main
+
+}//end class

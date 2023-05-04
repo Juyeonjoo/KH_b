@@ -1,0 +1,12 @@
+package org.zerock.myapp;
+
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
+public class UDPClient {
+
+	public static void main(String[] args) {
+
+	}//main
+
+}//end class
