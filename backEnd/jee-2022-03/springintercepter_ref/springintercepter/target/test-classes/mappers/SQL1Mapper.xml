@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.zerock.myapp.mapper.TimeMapper1">  <!-- BoardMapper => interface 이름과 동일하게 한다.-->
+
+	<select id="getNow2" resultType="java.util.Date">
+		SELECT current_date FROM dual
+	</select>
+</mapper>

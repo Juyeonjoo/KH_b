@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<!--  검증방법 : name의 이름을 ctrl 누르고 클릭하면 set**** method로 들어간다(들어가지 않는다면 다시 수정) -->
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<!-- DB 연결을 위한 필수 정보 4가지 -->
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@iabobij3bs5jnh34_high?TNS_ADMIN=/opt/OracleCloudWallet/VFX/" />
+		<property name="username" value="ADMIN" />
+		<property name="password" value="Mizuho2019!!" />
+		
+		<property name="maximumPoolSize" value="10" />
+		<property name="minimumIdle" value="2" />
+		<property name="idleTimeout" value="10000" /> 
+		<property name="connectionTimeout" value="2000" />
+		<property name="connectionTestQuery" value="SELECT * FROM dual" />
+		<property name="connectionInitSql" value="SELECT * FROM dual" />
+		<property name="dataSourceJNDI" value="jdbc/HikariCP" />
+		<property name="poolName" value="* HikariDataSource *" />
+	</bean>
+	
+	
+	<bean id="hikariDataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+		<constructor-arg ref="hikariConfig" /> 
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" > 
+		<property name="dataSource" ref="hikariDataSource"  />
+		<!-- <property name="mapperLocations" value="classpath*:mappers/SQL*.xml" />  -->    <!-- xml 파일의 경로를 알려준다. (해당 설정은 하지 않는다, 이유: SQL 찾는 조건이 Spring 이 알아서 찾아야하는데 이것을 MyBatis가 대신 찾기 때문이다.) -->
+		<!-- <property name="configLocation" value="classpath:mybatis-config.xml" />  --> <!-- mybatis-config.xml 파일이 어디에 있는지 알려준다.-->
+	</bean>
+	
+	
+	<!-- 아래 방식이 정석이다. -->	
+	<mybatis-spring:scan base-package="org.zerock.myapp.mapper" /> 
+	
+	<!-- <context:component-scan base-package="org.zerock.myapp.aop" />  -->
+	<context:component-scan base-package="org.zerock.myapp.service" />
+	
+	
+	<!-- AOP Configuration -->
+	<context:annotation-config />
+	<aop:aspectj-autoproxy />
+	
+	<!-- Transaction Manager -->
+	<bean id="transactionManager"
+	    class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	    <property name="dataSource" ref="hikariDataSource"></property>
+  	</bean>
+	<!-- @Transactional 어노테이션을 이용한 분산 트랜잭션 관리를 위한 설정  -->
+	<tx:annotation-driven />
+
+	
+
+
+
+
+	
+</beans>
